@@ -1,10 +1,10 @@
 resource "aws_lb" "app1_alb" {
-  provider = aws.tokyo
+  provider           = aws.tokyo
   name               = "app1-load-balancer"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.tokyo_sg.id]
-  subnets            = [
+  subnets = [
     aws_subnet.tokyo_subnet_public_1a.id,
     aws_subnet.tokyo_subnet_public_1c.id,
     # aws_subnet.virginia_subnet_public_1a.id,
@@ -22,7 +22,7 @@ resource "aws_lb" "app1_alb" {
 
   ]
   enable_deletion_protection = false
-#Lots of death and suffering here, make sure it's false
+  #Lots of death and suffering here, make sure it's false
 
   tags = {
     Name    = "App1LoadBalancer"

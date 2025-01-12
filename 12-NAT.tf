@@ -101,7 +101,7 @@ resource "aws_eip" "nat_sao_paulo_1c" {
 #Nat Gateway for Tokyo
 
 resource "aws_nat_gateway" "nat_gateway_public_tokyo_1a" {
-  provider = aws.tokyo
+  provider      = aws.tokyo
   allocation_id = aws_eip.nat_tokyo_1a.id
   subnet_id     = aws_subnet.tokyo_subnet_public_1a.id
 
@@ -113,7 +113,7 @@ resource "aws_nat_gateway" "nat_gateway_public_tokyo_1a" {
 }
 
 resource "aws_nat_gateway" "nat_gateway_tokyo_1c" {
-  provider = aws.tokyo
+  provider      = aws.tokyo
   allocation_id = aws_eip.nat_tokyo_1c.id
   subnet_id     = aws_subnet.tokyo_subnet_public_1c.id
 
@@ -127,7 +127,7 @@ resource "aws_nat_gateway" "nat_gateway_tokyo_1c" {
 #Nat Gateway for Virginia
 
 resource "aws_nat_gateway" "nat_gateway_virginia_1a" {
-  provider = aws.virginia
+  provider      = aws.virginia
   allocation_id = aws_eip.nat_virginia_1a.id
   subnet_id     = aws_subnet.virginia_subnet_public_1a.id
 
@@ -139,7 +139,7 @@ resource "aws_nat_gateway" "nat_gateway_virginia_1a" {
 }
 
 resource "aws_nat_gateway" "nat_gateway_virginia_1b" {
-  provider = aws.virginia
+  provider      = aws.virginia
   allocation_id = aws_eip.nat_virginia_1b.id
   subnet_id     = aws_subnet.virginia_subnet_public_1b.id
 
@@ -153,7 +153,7 @@ resource "aws_nat_gateway" "nat_gateway_virginia_1b" {
 #Nat Gateway for Hong Kong
 
 resource "aws_nat_gateway" "nat_gateway_hong_kong_1a" {
-  provider = aws.hong-kong
+  provider      = aws.hong-kong
   allocation_id = aws_eip.nat_hong_kong_1a.id
   subnet_id     = aws_subnet.hong_kong_subnet_public_1a.id
 
@@ -165,7 +165,7 @@ resource "aws_nat_gateway" "nat_gateway_hong_kong_1a" {
 }
 
 resource "aws_nat_gateway" "nat_gateway_hong_kong_1b" {
-  provider = aws.hong-kong
+  provider      = aws.hong-kong
   allocation_id = aws_eip.nat_hong_kong_1b.id
   subnet_id     = aws_subnet.hong_kong_subnet_public_1b.id
 
@@ -179,7 +179,7 @@ resource "aws_nat_gateway" "nat_gateway_hong_kong_1b" {
 #Nat Gateway for Australia
 
 resource "aws_nat_gateway" "nat_gateway_australia_1a" {
-  provider = aws.australia
+  provider      = aws.australia
   allocation_id = aws_eip.nat_australia_1a.id
   subnet_id     = aws_subnet.australia_subnet_public_1a.id
 
@@ -191,7 +191,7 @@ resource "aws_nat_gateway" "nat_gateway_australia_1a" {
 }
 
 resource "aws_nat_gateway" "nat_gateway_australia__1b" {
-  provider = aws.australia
+  provider      = aws.australia
   allocation_id = aws_eip.nat_australia_1b.id
   subnet_id     = aws_subnet.australia_subnet_public_1b.id
 
@@ -205,7 +205,7 @@ resource "aws_nat_gateway" "nat_gateway_australia__1b" {
 #Nat Gateway for California
 
 resource "aws_nat_gateway" "nat_gateway_california_1b" {
-  provider = aws.california
+  provider      = aws.california
   allocation_id = aws_eip.nat_california_1b.id
   subnet_id     = aws_subnet.california_subnet_public_1b.id
 
@@ -217,7 +217,7 @@ resource "aws_nat_gateway" "nat_gateway_california_1b" {
 }
 
 resource "aws_nat_gateway" "nat_gateway_california_1c" {
-  provider = aws.california
+  provider      = aws.california
   allocation_id = aws_eip.nat_california_1c.id
   subnet_id     = aws_subnet.california_subnet_public_1c.id
 
@@ -231,7 +231,7 @@ resource "aws_nat_gateway" "nat_gateway_california_1c" {
 #Nat Gateway for London
 
 resource "aws_nat_gateway" "nat_gateway_london_1a" {
-  provider = aws.london
+  provider      = aws.london
   allocation_id = aws_eip.nat_london_1a.id
   subnet_id     = aws_subnet.london_subnet_public_1a.id
 
@@ -243,7 +243,7 @@ resource "aws_nat_gateway" "nat_gateway_london_1a" {
 }
 
 resource "aws_nat_gateway" "nat_gateway_london_1b" {
-  provider = aws.london
+  provider      = aws.london
   allocation_id = aws_eip.nat_london_1b.id
   subnet_id     = aws_subnet.london_subnet_public_1b.id
 
@@ -257,7 +257,7 @@ resource "aws_nat_gateway" "nat_gateway_london_1b" {
 #Nat Gateway for Sao Paulo
 
 resource "aws_nat_gateway" "nat_gateway_sao_paulo_1a" {
-  provider = aws.sao-paulo
+  provider      = aws.sao-paulo
   allocation_id = aws_eip.nat_sao_paulo_1a.id
   subnet_id     = aws_subnet.sao_paulo_subnet_public_1a.id
 
@@ -269,7 +269,7 @@ resource "aws_nat_gateway" "nat_gateway_sao_paulo_1a" {
 }
 
 resource "aws_nat_gateway" "nat_gateway_sao_paulo_1c" {
-  provider = aws.sao-paulo
+  provider      = aws.sao-paulo
   allocation_id = aws_eip.nat_sao_paulo_1c.id
   subnet_id     = aws_subnet.sao_paulo_subnet_public_1c.id
 

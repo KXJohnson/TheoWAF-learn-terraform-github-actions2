@@ -1,14 +1,14 @@
 terraform {
-   cloud { 
-    
-    organization = "ragejournal0k" 
+  cloud {
 
-    workspaces { 
-      name = "SundayChill" 
-    } 
-  } 
-  
-  
+    organization = "ragejournal0k"
+
+    workspaces {
+      name = "SundayChill"
+    }
+  }
+
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"

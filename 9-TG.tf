@@ -1,10 +1,10 @@
 ########## TOKYO TARGET GROUP ##########
 resource "aws_lb_target_group" "tokyo-tg" {
-  provider = aws.tokyo
-  name     = "tokyo-target-group"
-  port     = 80
-  protocol = "HTTP"
-  vpc_id   = aws_vpc.tokyo_vpc.id
+  provider    = aws.tokyo
+  name        = "tokyo-target-group"
+  port        = 80
+  protocol    = "HTTP"
+  vpc_id      = aws_vpc.tokyo_vpc.id
   target_type = "instance"
 
 
@@ -21,18 +21,18 @@ resource "aws_lb_target_group" "tokyo-tg" {
 
 
   tags = {
-    Name    = "tokyo-target-group"
-    }
+    Name = "tokyo-target-group"
+  }
 }
 
 
 ########## VIRGINIA TARGET GROUP ########
 resource "aws_lb_target_group" "virginia-tg" {
-  provider = aws.virginia 
-  name     = "virginia-target-group"
-  port     = 80
-  protocol = "HTTP"
-  vpc_id   = aws_vpc.virginia_vpc.id
+  provider    = aws.virginia
+  name        = "virginia-target-group"
+  port        = 80
+  protocol    = "HTTP"
+  vpc_id      = aws_vpc.virginia_vpc.id
   target_type = "instance"
 
 
@@ -49,18 +49,18 @@ resource "aws_lb_target_group" "virginia-tg" {
 
 
   tags = {
-    Name    = "virginia-target-group"
-    }
+    Name = "virginia-target-group"
+  }
 }
 
 
 ######## HONG KONG TARGET GROUP #######
 resource "aws_lb_target_group" "hong_kong-tg" {
-  provider = aws.hong-kong
-  name     = "hong-kong-target-group"
-  port     = 80
-  protocol = "HTTP"
-  vpc_id   = aws_vpc.hong-kong_vpc.id
+  provider    = aws.hong-kong
+  name        = "hong-kong-target-group"
+  port        = 80
+  protocol    = "HTTP"
+  vpc_id      = aws_vpc.hong-kong_vpc.id
   target_type = "instance"
 
 
@@ -77,18 +77,18 @@ resource "aws_lb_target_group" "hong_kong-tg" {
 
 
   tags = {
-    Name    = "hong_kong-target-group"
-    }
+    Name = "hong_kong-target-group"
+  }
 }
 
 
 ######## AUSTRALIA TARGET GROUP #######
 resource "aws_lb_target_group" "australia-tg" {
-  provider = aws.australia
-  name     = "australia-target-group"
-  port     = 80
-  protocol = "HTTP"
-  vpc_id   = aws_vpc.australia_vpc.id
+  provider    = aws.australia
+  name        = "australia-target-group"
+  port        = 80
+  protocol    = "HTTP"
+  vpc_id      = aws_vpc.australia_vpc.id
   target_type = "instance"
 
 
@@ -105,18 +105,18 @@ resource "aws_lb_target_group" "australia-tg" {
 
 
   tags = {
-    Name    = "australia-target-group"
-    }
+    Name = "australia-target-group"
+  }
 }
 
 
 ######## CALIFORNIA TARGET GROUP #######
 resource "aws_lb_target_group" "california-tg" {
-  provider = aws.california
-  name     = "california-target-group"
-  port     = 80
-  protocol = "HTTP"
-  vpc_id   = aws_vpc.california_vpc.id
+  provider    = aws.california
+  name        = "california-target-group"
+  port        = 80
+  protocol    = "HTTP"
+  vpc_id      = aws_vpc.california_vpc.id
   target_type = "instance"
 
 
@@ -133,18 +133,18 @@ resource "aws_lb_target_group" "california-tg" {
 
 
   tags = {
-    Name    = "california-target-group"
-    }
+    Name = "california-target-group"
+  }
 }
 
 
 ######## LONDON TARGET GROUP #######
 resource "aws_lb_target_group" "london-tg" {
-  provider = aws.london
-  name     = "london-target-group"
-  port     = 80
-  protocol = "HTTP"
-  vpc_id   = aws_vpc.london_vpc.id
+  provider    = aws.london
+  name        = "london-target-group"
+  port        = 80
+  protocol    = "HTTP"
+  vpc_id      = aws_vpc.london_vpc.id
   target_type = "instance"
 
 
@@ -161,18 +161,18 @@ resource "aws_lb_target_group" "london-tg" {
 
 
   tags = {
-    Name    = "london-target-group"
-    }
+    Name = "london-target-group"
+  }
 }
 
 
 ######## SAO PAULO TARGET GROUP #######
 resource "aws_lb_target_group" "sao-paulo-tg" {
-  provider = aws.sao-paulo
-  name     = "saopaulo-target-group"
-  port     = 80
-  protocol = "HTTP"
-  vpc_id   = aws_vpc.sao-paulo_vpc.id
+  provider    = aws.sao-paulo
+  name        = "saopaulo-target-group"
+  port        = 80
+  protocol    = "HTTP"
+  vpc_id      = aws_vpc.sao-paulo_vpc.id
   target_type = "instance"
 
 
@@ -189,6 +189,6 @@ resource "aws_lb_target_group" "sao-paulo-tg" {
 
 
   tags = {
-    Name    = "saopaulo-target-group"
-    }
+    Name = "saopaulo-target-group"
+  }
 }

@@ -1,9 +1,9 @@
-resource "aws_launch_template" "tokyo_lt" { 
+resource "aws_launch_template" "tokyo_lt" {
   name_prefix   = "app1_LT"
-  image_id      = "ami-023ff3d4ab11b2525"  
+  image_id      = "ami-023ff3d4ab11b2525"
   instance_type = "t2.micro"
   provider      = aws.tokyo
-  key_name = "MyLinuxBox"
+  key_name      = "MyLinuxBox"
 
   vpc_security_group_ids = [aws_security_group.tokyo_sg.id]
 
@@ -56,7 +56,7 @@ resource "aws_launch_template" "tokyo_lt" {
   tag_specifications {
     resource_type = "instance"
     tags = {
-   Name    = "app1_LT"
+      Name    = "app1_LT"
       Service = "application1"
       Owner   = "Ninjas SWKS"
       Planet  = "Mars"
@@ -72,10 +72,10 @@ resource "aws_launch_template" "tokyo_lt" {
 
 resource "aws_launch_template" "virginia_lt" {
   name_prefix   = "app1_LT"
-  image_id      = "ami-0453ec754f44f9a4a"  
+  image_id      = "ami-0453ec754f44f9a4a"
   instance_type = "t2.micro"
-  provider      =  aws.virginia
-  key_name = "MyLinuxBox"
+  provider      = aws.virginia
+  key_name      = "MyLinuxBox"
 
   vpc_security_group_ids = [aws_security_group.virginia_sg.id]
 
@@ -128,7 +128,7 @@ resource "aws_launch_template" "virginia_lt" {
   tag_specifications {
     resource_type = "instance"
     tags = {
-   Name    = "app1_LT"
+      Name    = "app1_LT"
       Service = "application1"
       Owner   = "Ninjas SWKS"
       Planet  = "Mars"
@@ -145,10 +145,10 @@ resource "aws_launch_template" "virginia_lt" {
 
 resource "aws_launch_template" "hong_kong_lt" {
   name_prefix   = "app1_LT"
-  image_id      = "ami-06f707739f2271995"  
+  image_id      = "ami-06f707739f2271995"
   instance_type = "t3.micro"
   provider      = aws.hong-kong
-  key_name = "MyLinuxBox"
+  key_name      = "MyLinuxBox"
 
   vpc_security_group_ids = [aws_security_group.hong-kong_sg.id]
 
@@ -201,7 +201,7 @@ resource "aws_launch_template" "hong_kong_lt" {
   tag_specifications {
     resource_type = "instance"
     tags = {
-   Name    = "app1_LT"
+      Name    = "app1_LT"
       Service = "application1"
       Owner   = "Ninjas SWKS"
       Planet  = "Mars"
@@ -218,10 +218,10 @@ resource "aws_launch_template" "hong_kong_lt" {
 
 resource "aws_launch_template" "australia_lt" {
   name_prefix   = "app1_LT"
-  image_id      = "ami-0146fc9ad419e2cfd"  
+  image_id      = "ami-0146fc9ad419e2cfd"
   instance_type = "t2.micro"
-  provider      =  aws.australia
-  key_name = "MyLinuxBox"
+  provider      = aws.australia
+  key_name      = "MyLinuxBox"
 
   vpc_security_group_ids = [aws_security_group.australia_sg.id]
 
@@ -274,7 +274,7 @@ resource "aws_launch_template" "australia_lt" {
   tag_specifications {
     resource_type = "instance"
     tags = {
-   Name    = "app1_LT"
+      Name    = "app1_LT"
       Service = "application1"
       Owner   = "Ninjas SWKS"
       Planet  = "Mars"
@@ -291,10 +291,10 @@ resource "aws_launch_template" "australia_lt" {
 
 resource "aws_launch_template" "california_lt" {
   name_prefix   = "app1_LT"
-  image_id      = "ami-038bba9a164eb3dc1"  
+  image_id      = "ami-038bba9a164eb3dc1"
   instance_type = "t2.micro"
-  provider      =  aws.california
-  key_name = "MyLinuxBox"
+  provider      = aws.california
+  key_name      = "MyLinuxBox"
 
   vpc_security_group_ids = [aws_security_group.california_sg.id]
 
@@ -347,7 +347,7 @@ resource "aws_launch_template" "california_lt" {
   tag_specifications {
     resource_type = "instance"
     tags = {
-   Name    = "app1_LT"
+      Name    = "app1_LT"
       Service = "application1"
       Owner   = "Ninjas SWKS"
       Planet  = "Mars"
@@ -364,10 +364,10 @@ resource "aws_launch_template" "california_lt" {
 
 resource "aws_launch_template" "london_lt" {
   name_prefix   = "app1_LT"
-  image_id      = "ami-0c76bd4bd302b30ec"  
+  image_id      = "ami-0c76bd4bd302b30ec"
   instance_type = "t2.micro"
-  provider      =  aws.london
-  key_name = "MyLinuxBox"
+  provider      = aws.london
+  key_name      = "MyLinuxBox"
 
   vpc_security_group_ids = [aws_security_group.london_sg.id]
 
@@ -420,7 +420,7 @@ resource "aws_launch_template" "london_lt" {
   tag_specifications {
     resource_type = "instance"
     tags = {
-   Name    = "app1_LT"
+      Name    = "app1_LT"
       Service = "application1"
       Owner   = "Ninjas SWKS"
       Planet  = "Mars"
@@ -436,9 +436,9 @@ resource "aws_launch_template" "london_lt" {
 
 resource "aws_launch_template" "sao_paulo_lt" {
   name_prefix   = "app1_LT"
-  image_id      = "ami-0c820c196a818d66a"  
+  image_id      = "ami-0c820c196a818d66a"
   instance_type = "t3.micro"
-  provider      =  aws.sao-paulo
+  provider      = aws.sao-paulo
 
   key_name = "MyLinuxBox"
 
@@ -493,7 +493,7 @@ resource "aws_launch_template" "sao_paulo_lt" {
   tag_specifications {
     resource_type = "instance"
     tags = {
-   Name    = "app1_LT"
+      Name    = "app1_LT"
       Service = "application1"
       Owner   = "Ninjas SWKS"
       Planet  = "Mars"

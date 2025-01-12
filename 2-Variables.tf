@@ -14,8 +14,8 @@ variable "setup" {
 variable "vpcs" {
   type = map(map(string))
   default = {
-    tokyo = {                   
-      region = "ap-northeast-1" 
+    tokyo = {
+      region = "ap-northeast-1"
       cidr   = "10.50.0.0/16"
       name   = "tokyo"
     }

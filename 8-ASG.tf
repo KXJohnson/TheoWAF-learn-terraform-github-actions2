@@ -1,17 +1,17 @@
 resource "aws_autoscaling_group" "tokyo-asg" {
-  provider = aws.tokyo
-  name_prefix           = "tokyo-auto-scaling-group"
-  min_size              = 2
-  max_size              = 4
-  desired_capacity      = 3
-  vpc_zone_identifier   = [
+  provider         = aws.tokyo
+  name_prefix      = "tokyo-auto-scaling-group"
+  min_size         = 2
+  max_size         = 4
+  desired_capacity = 3
+  vpc_zone_identifier = [
     aws_subnet.tokyo_subnet_private_1a.id,
     aws_subnet.tokyo_subnet_private_1c.id
   ]
-  health_check_type          = "ELB"
-  health_check_grace_period  = 300
-  force_delete               = true
-  target_group_arns          = [aws_lb_target_group.tokyo-tg.arn]
+  health_check_type         = "ELB"
+  health_check_grace_period = 300
+  force_delete              = true
+  target_group_arns         = [aws_lb_target_group.tokyo-tg.arn]
 
 
   launch_template {
@@ -35,10 +35,10 @@ resource "aws_autoscaling_group" "tokyo-asg" {
 
   # Instance protection for terminating
   initial_lifecycle_hook {
-    name                  = "scale-in-protection"
-    lifecycle_transition  = "autoscaling:EC2_INSTANCE_TERMINATING"
-    default_result        = "CONTINUE"
-    heartbeat_timeout     = 300
+    name                 = "scale-in-protection"
+    lifecycle_transition = "autoscaling:EC2_INSTANCE_TERMINATING"
+    default_result       = "CONTINUE"
+    heartbeat_timeout    = 300
   }
 
 
@@ -59,12 +59,12 @@ resource "aws_autoscaling_group" "tokyo-asg" {
 
 ### Auto Scaling Policy
 resource "aws_autoscaling_policy" "tokyo-scaling-policy" {
-  provider = aws.tokyo
+  provider               = aws.tokyo
   name                   = "tokyo-cpu-target"
   autoscaling_group_name = aws_autoscaling_group.tokyo-asg.name
 
 
-  policy_type = "TargetTrackingScaling"
+  policy_type               = "TargetTrackingScaling"
   estimated_instance_warmup = 120
 
 
@@ -79,9 +79,9 @@ resource "aws_autoscaling_policy" "tokyo-scaling-policy" {
 
 ### Enabling Instance Scale-In Protection
 resource "aws_autoscaling_attachment" "tokyo-asg-attachment" {
-  provider = aws.tokyo
+  provider               = aws.tokyo
   autoscaling_group_name = aws_autoscaling_group.tokyo-asg.name
-  lb_target_group_arn   = aws_lb_target_group.tokyo-tg.arn
+  lb_target_group_arn    = aws_lb_target_group.tokyo-tg.arn
 }
 
 
@@ -89,20 +89,20 @@ resource "aws_autoscaling_attachment" "tokyo-asg-attachment" {
 
 
 resource "aws_autoscaling_group" "virginia-asg" {
-  provider = aws.virginia
-  name_prefix           = "virginia-auto-scaling-group"
-  min_size              = 2
-  max_size              = 4
-  desired_capacity      = 3
-  vpc_zone_identifier   = [
+  provider         = aws.virginia
+  name_prefix      = "virginia-auto-scaling-group"
+  min_size         = 2
+  max_size         = 4
+  desired_capacity = 3
+  vpc_zone_identifier = [
     aws_subnet.virginia_subnet_private_1a.id,
     aws_subnet.virginia_subnet_private_1b.id,
-   
+
   ]
-  health_check_type          = "ELB"
-  health_check_grace_period  = 300
-  force_delete               = true
-  target_group_arns          = [aws_lb_target_group.virginia-tg.arn]
+  health_check_type         = "ELB"
+  health_check_grace_period = 300
+  force_delete              = true
+  target_group_arns         = [aws_lb_target_group.virginia-tg.arn]
 
 
   launch_template {
@@ -126,10 +126,10 @@ resource "aws_autoscaling_group" "virginia-asg" {
 
   # Instance protection for terminating
   initial_lifecycle_hook {
-    name                  = "scale-in-protection"
-    lifecycle_transition  = "autoscaling:EC2_INSTANCE_TERMINATING"
-    default_result        = "CONTINUE"
-    heartbeat_timeout     = 300
+    name                 = "scale-in-protection"
+    lifecycle_transition = "autoscaling:EC2_INSTANCE_TERMINATING"
+    default_result       = "CONTINUE"
+    heartbeat_timeout    = 300
   }
 
 
@@ -153,12 +153,12 @@ resource "aws_autoscaling_group" "virginia-asg" {
 ### Auto Scaling Policy
 resource "aws_autoscaling_policy" "virginia-scaling-policy" {
   provider = aws.virginia
-    
+
   name                   = "virginia-cpu-target"
   autoscaling_group_name = aws_autoscaling_group.virginia-asg.name
 
 
-  policy_type = "TargetTrackingScaling"
+  policy_type               = "TargetTrackingScaling"
   estimated_instance_warmup = 120
 
 
@@ -173,9 +173,9 @@ resource "aws_autoscaling_policy" "virginia-scaling-policy" {
 
 ### Enabling Instance Scale-In Protection
 resource "aws_autoscaling_attachment" "virginia-asg-attachment" {
-  provider = aws.virginia
+  provider               = aws.virginia
   autoscaling_group_name = aws_autoscaling_group.virginia-asg.name
-  lb_target_group_arn   = aws_lb_target_group.virginia-tg.arn
+  lb_target_group_arn    = aws_lb_target_group.virginia-tg.arn
 }
 
 
@@ -183,19 +183,19 @@ resource "aws_autoscaling_attachment" "virginia-asg-attachment" {
 
 
 resource "aws_autoscaling_group" "hong_kong-asg" {
-  provider = aws.hong-kong
-  name_prefix           = "hongkong-auto-scaling-group"
-  min_size              = 2
-  max_size              = 4
-  desired_capacity      = 3
-  vpc_zone_identifier   = [
+  provider         = aws.hong-kong
+  name_prefix      = "hongkong-auto-scaling-group"
+  min_size         = 2
+  max_size         = 4
+  desired_capacity = 3
+  vpc_zone_identifier = [
     aws_subnet.hong_kong_subnet_private_1a.id,
     aws_subnet.hong_kong_subnet_private_1b.id
   ]
-  health_check_type          = "ELB"
-  health_check_grace_period  = 300
-  force_delete               = true
-  target_group_arns          = [aws_lb_target_group.hong_kong-tg.arn]
+  health_check_type         = "ELB"
+  health_check_grace_period = 300
+  force_delete              = true
+  target_group_arns         = [aws_lb_target_group.hong_kong-tg.arn]
 
 
   launch_template {
@@ -219,10 +219,10 @@ resource "aws_autoscaling_group" "hong_kong-asg" {
 
   # Instance protection for terminating
   initial_lifecycle_hook {
-    name                  = "scale-in-protection"
-    lifecycle_transition  = "autoscaling:EC2_INSTANCE_TERMINATING"
-    default_result        = "CONTINUE"
-    heartbeat_timeout     = 300
+    name                 = "scale-in-protection"
+    lifecycle_transition = "autoscaling:EC2_INSTANCE_TERMINATING"
+    default_result       = "CONTINUE"
+    heartbeat_timeout    = 300
   }
 
 
@@ -243,12 +243,12 @@ resource "aws_autoscaling_group" "hong_kong-asg" {
 
 ### Auto Scaling Policy
 resource "aws_autoscaling_policy" "hong_kong-scaling-policy" {
-  provider = aws.hong-kong
+  provider               = aws.hong-kong
   name                   = "hongkong-cpu-target"
   autoscaling_group_name = aws_autoscaling_group.hong_kong-asg.name
 
 
-  policy_type = "TargetTrackingScaling"
+  policy_type               = "TargetTrackingScaling"
   estimated_instance_warmup = 120
 
 
@@ -263,9 +263,9 @@ resource "aws_autoscaling_policy" "hong_kong-scaling-policy" {
 
 ### Enabling Instance Scale-In Protection
 resource "aws_autoscaling_attachment" "hong_kong-asg-attachment" {
-  provider = aws.hong-kong
+  provider               = aws.hong-kong
   autoscaling_group_name = aws_autoscaling_group.hong_kong-asg.name
-  lb_target_group_arn   = aws_lb_target_group.hong_kong-tg.arn
+  lb_target_group_arn    = aws_lb_target_group.hong_kong-tg.arn
 }
 
 
@@ -273,19 +273,19 @@ resource "aws_autoscaling_attachment" "hong_kong-asg-attachment" {
 
 
 resource "aws_autoscaling_group" "australia-asg" {
-  provider = aws.australia
-  name_prefix           = "australia-auto-scaling-group"
-  min_size              = 2
-  max_size              = 4
-  desired_capacity      = 3
-  vpc_zone_identifier   = [
+  provider         = aws.australia
+  name_prefix      = "australia-auto-scaling-group"
+  min_size         = 2
+  max_size         = 4
+  desired_capacity = 3
+  vpc_zone_identifier = [
     aws_subnet.australia_subnet_private_1a.id,
     aws_subnet.australia_subnet_private_1b.id
   ]
-  health_check_type          = "ELB"
-  health_check_grace_period  = 300
-  force_delete               = true
-  target_group_arns          = [aws_lb_target_group.australia-tg.arn]
+  health_check_type         = "ELB"
+  health_check_grace_period = 300
+  force_delete              = true
+  target_group_arns         = [aws_lb_target_group.australia-tg.arn]
 
 
   launch_template {
@@ -309,10 +309,10 @@ resource "aws_autoscaling_group" "australia-asg" {
 
   # Instance protection for terminating
   initial_lifecycle_hook {
-    name                  = "scale-in-protection"
-    lifecycle_transition  = "autoscaling:EC2_INSTANCE_TERMINATING"
-    default_result        = "CONTINUE"
-    heartbeat_timeout     = 300
+    name                 = "scale-in-protection"
+    lifecycle_transition = "autoscaling:EC2_INSTANCE_TERMINATING"
+    default_result       = "CONTINUE"
+    heartbeat_timeout    = 300
   }
 
 
@@ -333,12 +333,12 @@ resource "aws_autoscaling_group" "australia-asg" {
 
 ### Auto Scaling Policy
 resource "aws_autoscaling_policy" "australia-scaling-policy" {
-  provider = aws.australia
+  provider               = aws.australia
   name                   = "australia-cpu-target"
   autoscaling_group_name = aws_autoscaling_group.australia-asg.name
 
 
-  policy_type = "TargetTrackingScaling"
+  policy_type               = "TargetTrackingScaling"
   estimated_instance_warmup = 120
 
 
@@ -353,9 +353,9 @@ resource "aws_autoscaling_policy" "australia-scaling-policy" {
 
 ### Enabling instance scale-in protection
 resource "aws_autoscaling_attachment" "australia-asg-attachment" {
-  provider = aws.australia
+  provider               = aws.australia
   autoscaling_group_name = aws_autoscaling_group.australia-asg.name
-  lb_target_group_arn   = aws_lb_target_group.australia-tg.arn
+  lb_target_group_arn    = aws_lb_target_group.australia-tg.arn
 }
 
 
@@ -365,19 +365,19 @@ resource "aws_autoscaling_attachment" "australia-asg-attachment" {
 
 
 resource "aws_autoscaling_group" "california-asg" {
-  provider = aws.california
-  name_prefix           = "california-auto-scaling-group"
-  min_size              = 2
-  max_size              = 4
-  desired_capacity      = 3
-  vpc_zone_identifier   = [
+  provider         = aws.california
+  name_prefix      = "california-auto-scaling-group"
+  min_size         = 2
+  max_size         = 4
+  desired_capacity = 3
+  vpc_zone_identifier = [
     aws_subnet.california_subnet_private_1b.id,
     aws_subnet.california_subnet_private_1c.id
   ]
-  health_check_type          = "ELB"
-  health_check_grace_period  = 300
-  force_delete               = true
-  target_group_arns          = [aws_lb_target_group.california-tg.arn]
+  health_check_type         = "ELB"
+  health_check_grace_period = 300
+  force_delete              = true
+  target_group_arns         = [aws_lb_target_group.california-tg.arn]
 
 
   launch_template {
@@ -401,10 +401,10 @@ resource "aws_autoscaling_group" "california-asg" {
 
   # Instance protection for terminating
   initial_lifecycle_hook {
-    name                  = "scale-in-protection"
-    lifecycle_transition  = "autoscaling:EC2_INSTANCE_TERMINATING"
-    default_result        = "CONTINUE"
-    heartbeat_timeout     = 300
+    name                 = "scale-in-protection"
+    lifecycle_transition = "autoscaling:EC2_INSTANCE_TERMINATING"
+    default_result       = "CONTINUE"
+    heartbeat_timeout    = 300
   }
 
 
@@ -425,12 +425,12 @@ resource "aws_autoscaling_group" "california-asg" {
 
 ### Auto Scaling Policy
 resource "aws_autoscaling_policy" "california-scaling-policy" {
-  provider = aws.california
+  provider               = aws.california
   name                   = "california-cpu-target"
   autoscaling_group_name = aws_autoscaling_group.california-asg.name
 
 
-  policy_type = "TargetTrackingScaling"
+  policy_type               = "TargetTrackingScaling"
   estimated_instance_warmup = 120
 
 
@@ -445,9 +445,9 @@ resource "aws_autoscaling_policy" "california-scaling-policy" {
 
 ### Enabling instance scale-in protection
 resource "aws_autoscaling_attachment" "california-asg-attachment" {
-  provider = aws.california
+  provider               = aws.california
   autoscaling_group_name = aws_autoscaling_group.california-asg.name
-  lb_target_group_arn   = aws_lb_target_group.california-tg.arn
+  lb_target_group_arn    = aws_lb_target_group.california-tg.arn
 }
 
 
@@ -455,19 +455,19 @@ resource "aws_autoscaling_attachment" "california-asg-attachment" {
 
 
 resource "aws_autoscaling_group" "london-asg" {
-  provider = aws.london
-  name_prefix           = "london-auto-scaling-group"
-  min_size              = 2
-  max_size              = 4
-  desired_capacity      = 3
-  vpc_zone_identifier   = [
+  provider         = aws.london
+  name_prefix      = "london-auto-scaling-group"
+  min_size         = 2
+  max_size         = 4
+  desired_capacity = 3
+  vpc_zone_identifier = [
     aws_subnet.london_subnet_private_1a.id,
     aws_subnet.london_subnet_private_1b.id
   ]
-  health_check_type          = "ELB"
-  health_check_grace_period  = 300
-  force_delete               = true
-  target_group_arns          = [aws_lb_target_group.london-tg.arn]
+  health_check_type         = "ELB"
+  health_check_grace_period = 300
+  force_delete              = true
+  target_group_arns         = [aws_lb_target_group.london-tg.arn]
 
 
   launch_template {
@@ -491,10 +491,10 @@ resource "aws_autoscaling_group" "london-asg" {
 
   # Instance protection for terminating
   initial_lifecycle_hook {
-    name                  = "scale-in-protection"
-    lifecycle_transition  = "autoscaling:EC2_INSTANCE_TERMINATING"
-    default_result        = "CONTINUE"
-    heartbeat_timeout     = 300
+    name                 = "scale-in-protection"
+    lifecycle_transition = "autoscaling:EC2_INSTANCE_TERMINATING"
+    default_result       = "CONTINUE"
+    heartbeat_timeout    = 300
   }
 
 
@@ -515,12 +515,12 @@ resource "aws_autoscaling_group" "london-asg" {
 
 ### Auto Scaling Policy
 resource "aws_autoscaling_policy" "london-scaling-policy" {
-  provider = aws.london
+  provider               = aws.london
   name                   = "london-cpu-target"
   autoscaling_group_name = aws_autoscaling_group.london-asg.name
 
 
-  policy_type = "TargetTrackingScaling"
+  policy_type               = "TargetTrackingScaling"
   estimated_instance_warmup = 120
 
 
@@ -535,9 +535,9 @@ resource "aws_autoscaling_policy" "london-scaling-policy" {
 
 ### Enabling Instance Scale-In Protection
 resource "aws_autoscaling_attachment" "london-asg-attachment" {
-  provider = aws.london
+  provider               = aws.london
   autoscaling_group_name = aws_autoscaling_group.london-asg.name
-  lb_target_group_arn   = aws_lb_target_group.london-tg.arn
+  lb_target_group_arn    = aws_lb_target_group.london-tg.arn
 }
 
 
@@ -545,19 +545,19 @@ resource "aws_autoscaling_attachment" "london-asg-attachment" {
 
 
 resource "aws_autoscaling_group" "sao_paulo-asg" {
-  provider = aws.sao-paulo
-  name_prefix           = "saopaulo-auto-scaling-group"
-  min_size              = 2
-  max_size              = 4
-  desired_capacity      = 3
-  vpc_zone_identifier   = [
+  provider         = aws.sao-paulo
+  name_prefix      = "saopaulo-auto-scaling-group"
+  min_size         = 2
+  max_size         = 4
+  desired_capacity = 3
+  vpc_zone_identifier = [
     aws_subnet.sao_paulo_subnet_private_1a.id,
     aws_subnet.sao_paulo_subnet_private_1c.id
   ]
-  health_check_type          = "ELB"
-  health_check_grace_period  = 300
-  force_delete               = true
-  target_group_arns          = [aws_lb_target_group.sao-paulo-tg.arn]
+  health_check_type         = "ELB"
+  health_check_grace_period = 300
+  force_delete              = true
+  target_group_arns         = [aws_lb_target_group.sao-paulo-tg.arn]
 
 
   launch_template {
@@ -581,10 +581,10 @@ resource "aws_autoscaling_group" "sao_paulo-asg" {
 
   # Instance protection for terminating
   initial_lifecycle_hook {
-    name                  = "scale-in-protection"
-    lifecycle_transition  = "autoscaling:EC2_INSTANCE_TERMINATING"
-    default_result        = "CONTINUE"
-    heartbeat_timeout     = 300
+    name                 = "scale-in-protection"
+    lifecycle_transition = "autoscaling:EC2_INSTANCE_TERMINATING"
+    default_result       = "CONTINUE"
+    heartbeat_timeout    = 300
   }
 
 
@@ -605,12 +605,12 @@ resource "aws_autoscaling_group" "sao_paulo-asg" {
 
 ### Auto Scaling Policy
 resource "aws_autoscaling_policy" "saopaulo-scaling-policy" {
-  provider = aws.sao-paulo  
+  provider               = aws.sao-paulo
   name                   = "saopaulo-cpu-target"
   autoscaling_group_name = aws_autoscaling_group.sao_paulo-asg.name
 
 
-  policy_type = "TargetTrackingScaling"
+  policy_type               = "TargetTrackingScaling"
   estimated_instance_warmup = 120
 
 
@@ -625,9 +625,9 @@ resource "aws_autoscaling_policy" "saopaulo-scaling-policy" {
 
 ### Enabling Instance Scale-In Protection
 resource "aws_autoscaling_attachment" "saopaulo-asg-attachment" {
-  provider = aws.sao-paulo
+  provider               = aws.sao-paulo
   autoscaling_group_name = aws_autoscaling_group.sao_paulo-asg.name
-  lb_target_group_arn   = aws_lb_target_group.sao-paulo-tg.arn
+  lb_target_group_arn    = aws_lb_target_group.sao-paulo-tg.arn
 }
 
 
