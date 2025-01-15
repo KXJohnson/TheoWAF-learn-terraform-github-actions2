@@ -5,7 +5,7 @@ on:
 env:
   TF_CLOUD_ORGANIZATION: "ragejournal0k"
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
-  TF_WORKSPACE: "SundayChill"
+  TF_WORKSPACE: "PipelineReview"
   CONFIG_DIRECTORY: "./"
 jobs:
   terraform:
